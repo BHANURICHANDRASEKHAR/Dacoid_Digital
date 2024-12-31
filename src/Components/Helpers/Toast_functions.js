@@ -38,24 +38,30 @@ export default function filter(data, events, setEventsData,EditIndex) {
     onError("Please fill out all fields");
     return false;
   }
-  console.log(EditIndex,data.id)
   if(EditIndex==data.id)
   {
-    console.log("before",events,"Selected Id",data.id,EditIndex);
-    events.splice(EditIndex,1);
-    console.log("after",events)
+   
+    const newEvents=events.toSpliced(EditIndex,1)
+   
+    if (isOverlapping(data, newEvents)) {
+      onError("Event time overlaps with an existing event");
+      return false;
+    }
+    events[EditIndex]=data;
     setEventsData(events)
     localStorage.setItem('events', JSON.stringify(events));
-    
-  }
-  if (isOverlapping(data, events)) {
-    onError("Event time overlaps with an existing event");
-    return false;
-  }
+    return true;
 
-  const updatedEvents = [...events, data];
-  setEventsData(updatedEvents);
-  localStorage.setItem('events', JSON.stringify(updatedEvents));
-  onSuccess("Event added successfully");
-  return true;
+  }
+  else{
+    if (isOverlapping(data, events)) {
+      onError("Event time overlaps with an existing event");
+      return false;
+    }
+    const updatedEvents = [...events, data];
+    setEventsData(updatedEvents);
+    localStorage.setItem('events', JSON.stringify(updatedEvents));
+    onSuccess("Event added successfully");
+    return true;
+  }
 }

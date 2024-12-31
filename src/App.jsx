@@ -1,9 +1,8 @@
 import React from 'react'
 import CalenderMainView from './Components/Calendar_View/Main.jsx';
-import Modal_Component from './Components/Modal/Main.jsx'
+import Modal_Component from './Components/Event_Management/Main.jsx'
 import {Toaster} from 'react-hot-toast'
 export default function App() {
-  console.log('App')
   return (
     <React.Fragment>
     <Modal_Component/>

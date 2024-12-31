@@ -6,11 +6,12 @@ import { UserContext } from "../Context/Main";
 const App = () => {
   const [value, setValue] = useState(() => dayjs());
   const [selectedValue, setSelectedValue] = useState(() => dayjs());
-  const { data, setdata, setmodal } = useContext(UserContext);
+  const { data, setdata, setmodal,SetSeletedDate } = useContext(UserContext);
 
   const onSelect = (newValue) => {
     if (newValue.isSame(value, "month")) {
       setdata({ ...data, selectedDate: newValue?.format("YYYY-MM-DD") });
+      SetSeletedDate(newValue?.format("YYYY-MM-DD"))
       setmodal(true);
     }
     setValue(newValue);

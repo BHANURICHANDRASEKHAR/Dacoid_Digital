@@ -15,9 +15,7 @@ dayjs.extend(customParseFormat);
 export default function InputCom()
 {
     const { data,setdata,eventsData,EditIndex,setEditIndex } = useContext(UserContext);
-    console.log('Input Component Rendered');
     useEffect(()=>{
-      console.log(eventsData)
           return()=>{
             setdata({
               selectedDate:'',
@@ -27,7 +25,6 @@ export default function InputCom()
               startTime:'',
             })
             setEditIndex(-1)
-            console.log(eventsData)
             
           }
           },[])
@@ -39,14 +36,8 @@ export default function InputCom()
         setdata({...data, [event.target.name]: event.target.value });
     };
     const onChange = (time, timeString) => {
-        if(EditIndex==-1)
-        {
-          setdata({...data, startTime:timeString[0],endTime:timeString[1], id:eventsData.length });
-        }
-        else{
-          setdata({...data, startTime:timeString[0],endTime:timeString[1] });
+      setdata({...data, startTime:timeString[0],endTime:timeString[1] });
 
-        }
         setTimeRange(time);
       };
       
