@@ -1,6 +1,6 @@
-# README
 
-# Dacoid_Digital React Js Assignment
+
+# Dacoid Digital React Js Assignment
 
 ## Summary of Features
 
@@ -46,6 +46,6 @@ This project is a ReactJS-based web application that includes the following feat
 
 ## Deployed Application
 
-The application is deployed and can be accessed via the following link:
+The application is deployed at Netlify and can be accessed via the following link :
 
 [Deployed Application](https://dacoiddigital-reactjs.netlify.app/)
